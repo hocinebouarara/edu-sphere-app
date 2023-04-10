@@ -43,4 +43,4 @@ If you would like to contribute to Course Hub, please follow these steps:
 Courses Craze is licensed under the MIT License. See LICENSE for more information.
 
 # Contact
-If you have any questions or issues with Course Hub, please contact us at https://www.linkedin.com/in/hocine-bouarara-030708180/.
+If you have any questions or issues with Courses Craze, please contact us at https://www.linkedin.com/in/hocine-bouarara-030708180/.
