@@ -34,8 +34,8 @@ public class EnrollmentService {
         return enrollmentRepository.findAll();
     }
 
-    public List<Enrollment> getEnrollmentsByCourseId(Long courseId) {
-        return enrollmentRepository.findByCourseId(courseId);
+    public List<Enrollment> getEnrollmentsByUserId(Long userId) {
+        return enrollmentRepository.getEnrollmentsByUserId(userId);
     }
 
 }
