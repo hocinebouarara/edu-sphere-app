@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
+import java.sql.Time;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +38,7 @@ public class Course {
     private BigDecimal price;
 
     @Column(name = "duration")
-    private Duration duration;
+    private Time duration;
 
     @Column(name = "level")
     private String level;
