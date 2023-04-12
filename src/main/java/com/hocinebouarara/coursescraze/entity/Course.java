@@ -1,9 +1,15 @@
 package com.hocinebouarara.coursescraze.entity;
 
 import jakarta.persistence.*;
+import jdk.jfr.Category;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
+import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,6 +21,7 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "title")
@@ -23,65 +30,29 @@ public class Course {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "price")
-    private Double price;
+    @Column(name = "image_url")
+    private String imageUrl;
 
-    @Column(name = "rating")
-    private Double rating;
+    @Column(name = "price")
+    private BigDecimal price;
+
+    @Column(name = "duration")
+    private Duration duration;
 
     @Column(name = "level")
     private String level;
 
-    @Column(name = "category")
-    private String category;
+    @Column(name = "date_created")
+    @CreationTimestamp
+    private Date dateCreated;
 
-    @Column(name = "thumbnail_url")
-    private String thumbnailUrl;
+    @Column(name = "last_updated")
+    @UpdateTimestamp
+    private Date dateUpdated;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Review> reviews;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private CourseCategory category;
 
-    public Course() {
-    }
-
-    public Course(Long id, String title, String description, Double price, Double rating, String level, String category, String thumbnailUrl, List<Review> reviews) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.rating = rating;
-        this.level = level;
-        this.category = category;
-        this.thumbnailUrl = thumbnailUrl;
-        this.reviews = reviews;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return Objects.equals(id, course.id) && Objects.equals(title, course.title) && Objects.equals(description, course.description) && Objects.equals(price, course.price) && Objects.equals(rating, course.rating) && Objects.equals(level, course.level) && Objects.equals(category, course.category) && Objects.equals(thumbnailUrl, course.thumbnailUrl) && Objects.equals(reviews, course.reviews);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, description, price, rating, level, category, thumbnailUrl, reviews);
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", rating=" + rating +
-                ", level='" + level + '\'' +
-                ", category='" + category + '\'' +
-                ", thumbnailUrl='" + thumbnailUrl + '\'' +
-                ", reviews=" + reviews +
-                '}';
-    }
 }
 
