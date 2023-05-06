@@ -11,7 +11,7 @@ To run the Courses Craze application on your local machine, you will need to hav
 
 Once you have installed the necessary software, follow these steps to run the application:
 
-1. Clone the Course Hub repository to your local machine.
+1. Clone the Course Craze repository to your local machine.
 2. Import the course.sql file in MySQL to create the Course Hub database and tables.
 3. Open a terminal or command prompt and navigate to the backend directory of the cloned repository.
 4. Run the command ./mvnw spring-boot:run to start the Spring Boot backend.
