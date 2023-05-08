@@ -16,4 +16,6 @@ public interface CourseRepository extends JpaRepository<Course ,Long> {
 
     Page<Course> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
 
+    Page<Course> findByTitleContaining(@RequestParam("name") String name ,Pageable pageable);
+
 }
